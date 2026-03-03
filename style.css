@@ -1,1 +1,44 @@
 
+body {
+    background: linear-gradient(to bottom, #0f0f1a, #1a1a2e);
+    color: #e6e6ff;
+    font-family: "Courier New", monospace;
+    margin: 0;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* Title */ name 
+h1 {
+    font-size: 38px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    color: #b3b3ff;
+    text-shadow: 0 0 8px rgba(179, 179, 255, 0.6);
+}
+
+/* Poem text */ put whole thing here
+p {
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    font-size: 18px;
+    line-height: 2;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Images */ place images here rememebr
+img {
+    width: 260px;
+    margin: 15px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+img:hover {
+    transform: scale(1.08) rotate(-1deg);
+    box-shadow: 0 0 20px rgba(179, 179, 255, 0.7);
