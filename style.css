@@ -8,7 +8,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Glowy, slightly glitchy title */
+
 h1 {
     font-size: 42px;
     letter-spacing: 5px;
@@ -22,7 +22,7 @@ h1 {
     animation: flicker 3s infinite;
 }
 
-/* Subtle flicker effect */
+
 @keyframes flicker {
     0%, 18%, 22%, 25%, 53%, 57%, 100% {
         opacity: 1;
@@ -32,7 +32,7 @@ h1 {
     }
 }
 
-/* Poem box */
+
 p {
     max-width: 700px;
     margin: 0 auto 60px auto;
@@ -47,40 +47,49 @@ p {
     backdrop-filter: blur(4px);
 }
 
-/* Make some lines feel off-balance */
+
 p br:nth-of-type(4n) {
     line-height: 3;
 }
 
-/* Images */
+
 img {
     width: 240px;
     margin: 20px;
     border-radius: 20px;
-    filter: grayscale(20%) contrast(110%);
-    transition: all 0.3s ease;
+    opacity: 0;
+
+    animation: fadeIn 2s ease forwards, float 6s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Funky hover */
-img:hover {
-    transform: scale(1.1) rotate(-2deg);
-    filter: grayscale(0%) contrast(130%);
-    box-shadow: 
-        0 0 20px #9999ff,
-        0 0 40px rgba(255, 0, 255, 0.4);
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Slight floating effect */
-img:nth-child(odd) {
-    animation: float 6s ease-in-out infinite;
-}
-
-img:nth-child(even) {
-    animation: float 8s ease-in-out infinite;
-}
 
 @keyframes float {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-12px); }
     100% { transform: translateY(0px); }
+}
+
+
+img:nth-of-type(1) { animation-delay: 0.3s, 0s; }
+img:nth-of-type(2) { animation-delay: 0.8s, 0s; }
+img:nth-of-type(3) { animation-delay: 1.3s, 0s; }
+img:nth-of-type(4) { animation-delay: 1.8s, 0s; }
+
+
+img:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 0 25px rgba(179, 179, 255, 0.8);
 }
