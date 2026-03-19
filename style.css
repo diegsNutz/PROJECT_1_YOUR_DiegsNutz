@@ -1,44 +1,86 @@
-
 body {
-    background: linear-gradient(to bottom, #0f0f1a, #1a1a2e);
+    background: linear-gradient(180deg, #0a0a12, #1b1b2f, #0a0a12);
     color: #e6e6ff;
     font-family: "Courier New", monospace;
     margin: 0;
     padding: 60px 20px;
     text-align: center;
+    overflow-x: hidden;
 }
 
-/* Title */ name 
+/* Glowy, slightly glitchy title */
 h1 {
-    font-size: 38px;
-    letter-spacing: 4px;
+    font-size: 42px;
+    letter-spacing: 5px;
     text-transform: uppercase;
-    margin-bottom: 40px;
-    color: #b3b3ff;
-    text-shadow: 0 0 8px rgba(179, 179, 255, 0.6);
+    margin-bottom: 50px;
+    color: #c2c2ff;
+    text-shadow: 
+        0 0 5px #9999ff,
+        0 0 15px rgba(153,153,255,0.8),
+        2px 2px 0px rgba(255, 0, 255, 0.3);
+    animation: flicker 3s infinite;
 }
 
-/* Poem text */ put whole thing here
+/* Subtle flicker effect */
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.6;
+    }
+}
+
+/* Poem box */
 p {
     max-width: 700px;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 60px auto;
     font-size: 18px;
-    line-height: 2;
-    background-color: rgba(255, 255, 255, 0.03);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    line-height: 2.2;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 
+        0 0 30px rgba(0, 0, 0, 0.8),
+        inset 0 0 10px rgba(255,255,255,0.05);
+    backdrop-filter: blur(4px);
 }
 
-/* Images */ place images here rememebr
+/* Make some lines feel off-balance */
+p br:nth-of-type(4n) {
+    line-height: 3;
+}
+
+/* Images */
 img {
-    width: 260px;
-    margin: 15px;
-    border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 240px;
+    margin: 20px;
+    border-radius: 20px;
+    filter: grayscale(20%) contrast(110%);
+    transition: all 0.3s ease;
 }
 
-/* Hover effect */
+/* Funky hover */
 img:hover {
-    transform: scale(1.08) rotate(-1deg);
-    box-shadow: 0 0 20px rgba(179, 179, 255, 0.7);
+    transform: scale(1.1) rotate(-2deg);
+    filter: grayscale(0%) contrast(130%);
+    box-shadow: 
+        0 0 20px #9999ff,
+        0 0 40px rgba(255, 0, 255, 0.4);
+}
+
+/* Slight floating effect */
+img:nth-child(odd) {
+    animation: float 6s ease-in-out infinite;
+}
+
+img:nth-child(even) {
+    animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
